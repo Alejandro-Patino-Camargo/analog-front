@@ -1,0 +1,19 @@
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 300px);
+  font-size: var(--h1-text);
+}
+
+.link-input {
+  border-radius: 13px;
+  padding: 5px;
+}
+
+.input-button {
+  border-radius: 10px;
+  margin-left: 5px;
+}

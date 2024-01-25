@@ -1,0 +1,16 @@
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  font-size: var(--h2-text);
+  border-bottom: 1px solid var(--primary-border-color);
+}
+
+.container-items {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
