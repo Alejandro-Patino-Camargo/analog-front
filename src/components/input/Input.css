@@ -44,10 +44,12 @@
 .input-button {
   background-color: black;
   color: white;
+  font-weight: bold;
 }
 
 .input-button:hover {
-  background-color: lightgray;
+  background-color: #f3f4f6;
   color: black;
-  cursor: auto;
+  cursor: pointer;
+  font-weight: bold;
 }
