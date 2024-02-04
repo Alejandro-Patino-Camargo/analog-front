@@ -2,8 +2,8 @@
   font-family: "Roboto", sans-serif;
   width: 100%;
   min-height: 100vh;
-  background-color: #161616;
-  color: white;
+  background-color: #f3f4f6;
+  color: black;
 
   /*font size*/
   --h1-text: 28px;
@@ -12,8 +12,8 @@
   --p-text: 16px;
 
   /*background color; */
-  --primary-background: #161616;
-  --secondary-background: #1c1c1c;
+  --primary-background: #f3f4f6;
+  --secondary-background: #f3f4f6;
 
   /* border and radius*/
   --primary-border-color: #424242;

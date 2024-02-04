@@ -1,0 +1,65 @@
+.section-container {
+  width: 100%;
+  /* Add your styles */
+}
+
+.content-container {
+  /* Add your styles */
+}
+
+.layout-grid {
+  display: grid;
+  /* Add your grid layout styles */
+}
+
+.project-image {
+  margin: auto;
+  /* Add your image styles */
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  /* Add your styles */
+}
+
+.header-container {
+  /* Add your styles */
+}
+
+.project-title {
+  font-size: 24px; /* Example size, adjust as needed */
+  font-weight: bold;
+  /* Add your styles */
+}
+
+.project-description {
+  /* Add your styles */
+}
+
+.features-list {
+  display: grid;
+  /* Add your list styles */
+}
+
+.check-icon {
+  margin-right: 8px;
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  /* Add your styles */
+}
+
+.buttons-container {
+  display: flex;
+  /* Add your styles for button container */
+}
+
+.view-project-button,
+.source-code-button {
+  display: inline-flex;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  /* Add your button styles */
+}

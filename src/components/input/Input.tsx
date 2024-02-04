@@ -1,4 +1,4 @@
-import React, { useState, FormEvent, ChangeEvent } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
 import "./Input.css";
 
 function Input() {
@@ -19,12 +19,12 @@ function Input() {
       const backendURL = `http://localhost:3000/api/v1/fetchMP3?link=${youtubeLink}`;
       const response = await fetch(backendURL);
 
-      console.log(response)
+      console.log(response);
 
       if (response.ok) {
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
+        const a = document.createElement("a");
         a.href = url;
         a.download = "audio.mp3";
         document.body.appendChild(a);
@@ -41,16 +41,21 @@ function Input() {
 
   return (
     <div className="input-container">
-      <form onSubmit={handleSubmit} className="input-form">
-        <input
-          type="text"
-          className="link-input"
-          value={userInput}
-          onChange={handleInputChange}
-          placeholder="Enter a YouTube link..."
-        />
-        <button type="submit" className="input-button">Submit</button>
-      </form>
+      <div className="input-card">
+        <h3 className="input-title">YouTube to MP3 Converter </h3>
+        <form onSubmit={handleSubmit} className="input-form">
+          <input
+            type="text"
+            className="link-input"
+            value={userInput}
+            onChange={handleInputChange}
+            placeholder="Paste a YouTube link..."
+          />
+          <button type="submit" className="input-button">
+            Download
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
