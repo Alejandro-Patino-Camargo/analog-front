@@ -16,38 +16,32 @@ function Input() {
     setLoading(true);
 
     try {
-      const { success, error } = await fetchMP3(userInput);
-
-      if (success) {
-        console.log("MP3 download successful");
-      } else {
-        console.error("Failed to fetch MP3:", error);
-      }
+      await fetchMP3(userInput);
     } finally {
       setLoading(false);
+      setUserInput("");
     }
-
-    setUserInput("");
   };
 
   async function fetchMP3(youtubeLink: string) {
     try {
       const backendURL = `${base_url}/api/v1/fetchMP3?link=${youtubeLink}`;
       const response = await fetch(backendURL);
+      console.log(response);
 
       if (response.ok) {
         const blob = await response.blob();
-
         const downloadLink = document.createElement("a");
-        downloadLink.href = window.URL.createObjectURL(blob);
+
+        const blobUrl = window.URL.createObjectURL(blob);
+
+        downloadLink.href = blobUrl;
         downloadLink.download = "audio.mp3";
         document.body.appendChild(downloadLink);
 
         downloadLink.click();
 
         document.body.removeChild(downloadLink);
-
-        return { success: true };
       } else {
         console.error("Failed to fetch MP3: Response was not OK.");
         return { success: false, error: "Failed to fetch MP3" };
@@ -57,6 +51,7 @@ function Input() {
       return { success: false, error: "Error fetching MP3" };
     }
   }
+
   return (
     <div className="input-container">
       <div className="input-card">
