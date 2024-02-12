@@ -1,8 +1,10 @@
 import { useState, FormEvent, ChangeEvent } from "react";
+import Loader from "../loader/Loader";
 import "./Input.css";
 
 function Input() {
   const [userInput, setUserInput] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setUserInput(e.target.value);
@@ -10,7 +12,14 @@ function Input() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await fetchMP3(userInput);
+    setLoading(true);
+
+    try {
+      await fetchMP3(userInput);
+    } finally {
+      setLoading(false);
+    }
+
     setUserInput("");
   };
 
@@ -19,23 +28,24 @@ function Input() {
       const backendURL = `http://localhost:3000/api/v1/fetchMP3?link=${youtubeLink}`;
       const response = await fetch(backendURL);
 
-      console.log(response);
-
       if (response.ok) {
-        const blob = await response.blob();
+        const data = await response.json();
+        const blob = new Blob([data.body]);
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
-        a.download = "audio.mp3";
+        a.download = `${data.filename}`;
+        a.type = "audio/mpeg";
         document.body.appendChild(a);
         a.click();
-        window.URL.revokeObjectURL(url);
         console.log("MP3 download initiated.");
       } else {
         console.error("Failed to fetch MP3: Response was not OK.");
+        return Error;
       }
     } catch (error) {
       console.error("Error fetching MP3:", error);
+      return error;
     }
   }
 
@@ -51,9 +61,13 @@ function Input() {
             onChange={handleInputChange}
             placeholder="Paste a YouTube link..."
           />
-          <button type="submit" className="input-button">
-            Download
-          </button>
+          {loading ? (
+            <Loader />
+          ) : (
+            <button type="submit" className="input-button">
+              Download
+            </button>
+          )}
         </form>
       </div>
     </div>

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { SVGProps } from "react";
-
 interface CheckIconProps extends SVGProps<SVGSVGElement> {}
 
 function CheckIcon(props: CheckIconProps) {
