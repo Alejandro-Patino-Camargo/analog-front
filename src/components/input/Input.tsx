@@ -1,4 +1,5 @@
 import { useState, FormEvent, ChangeEvent } from "react";
+import { base_url } from "../../config";
 import Loader from "../loader/Loader";
 import "./Input.css";
 
@@ -15,7 +16,13 @@ function Input() {
     setLoading(true);
 
     try {
-      await fetchMP3(userInput);
+      const { success, error } = await fetchMP3(userInput);
+
+      if (success) {
+        console.log("MP3 download successful");
+      } else {
+        console.error("Failed to fetch MP3:", error);
+      }
     } finally {
       setLoading(false);
     }
@@ -25,30 +32,31 @@ function Input() {
 
   async function fetchMP3(youtubeLink: string) {
     try {
-      const backendURL = `http://localhost:3000/api/v1/fetchMP3?link=${youtubeLink}`;
+      const backendURL = `${base_url}/api/v1/fetchMP3?link=${youtubeLink}`;
       const response = await fetch(backendURL);
 
       if (response.ok) {
-        const data = await response.json();
-        const blob = new Blob([data.body]);
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = `${data.filename}`;
-        a.type = "audio/mpeg";
-        document.body.appendChild(a);
-        a.click();
-        console.log("MP3 download initiated.");
+        const blob = await response.blob();
+
+        const downloadLink = document.createElement("a");
+        downloadLink.href = window.URL.createObjectURL(blob);
+        downloadLink.download = "audio.mp3";
+        document.body.appendChild(downloadLink);
+
+        downloadLink.click();
+
+        document.body.removeChild(downloadLink);
+
+        return { success: true };
       } else {
         console.error("Failed to fetch MP3: Response was not OK.");
-        return Error;
+        return { success: false, error: "Failed to fetch MP3" };
       }
     } catch (error) {
       console.error("Error fetching MP3:", error);
-      return error;
+      return { success: false, error: "Error fetching MP3" };
     }
   }
-
   return (
     <div className="input-container">
       <div className="input-card">

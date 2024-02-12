@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { base_url } from "../../config.js";
 import "./Counter.css";
 
 interface CounterData {
@@ -11,7 +12,7 @@ function Counter() {
   useEffect(() => {
     async function fetchCounter() {
       try {
-        const backendURL = `http://localhost:3000/api/v1/counter`;
+        const backendURL = `${base_url}/api/v1/counter`;
         const response = await fetch(backendURL);
         const data: CounterData = await response.json();
 
