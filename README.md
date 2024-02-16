@@ -1,30 +1,36 @@
-# React + TypeScript + Vite
+# Analog - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the frontend for Analog, a YouTube to MP3 converter with a modern React + TypeScript + Vite setup.
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Analog stands out as an efficient and user-friendly YouTube to MP3 converter. The frontend is meticulously crafted with React, TypeScript, and Vite, offering a seamless development experience. Developers can choose between Babel and SWC for Fast Refresh, tailoring the workflow to their preferences.
 
-## Expanding the ESLint configuration
+## Key Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React + TypeScript + Vite:** Modern and robust technologies are at the core of Analog's frontend, ensuring maintainability and scalability.
+- **Fast Refresh Options:** Developers can choose between Babel and SWC for Fast Refresh, providing flexibility based on personal preferences or project requirements.
+- **Efficient Development Workflow:** Analog streamlines the YouTube to MP3 conversion process, emphasizing both speed and ease of use.
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started Locally
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+1. **Clone the repository:**
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+    ```bash
+    git clone https://github.com/yourusername/analog-frontend.git
+    ```
+
+2. **Install dependencies:**
+
+    ```bash
+    cd analog-frontend
+    npm install
+    ```
+
+3. **Run the local development server:**
+
+    ```bash
+    npm run dev
+    ```
+
+    The Analog frontend will be accessible at http://localhost:3000
