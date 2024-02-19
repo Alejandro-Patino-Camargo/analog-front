@@ -9,6 +9,8 @@ interface CounterData {
 function Counter() {
   const [counters, setCounters] = useState<number[]>([]);
 
+  //FIX: useEffect should not depend on counters,  it should only run once
+  //1. currently makes a fetch request every time, not just once
   useEffect(() => {
     async function fetchCounter() {
       try {

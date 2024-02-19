@@ -1,65 +1,46 @@
-.section-container {
-  width: 100%;
-  /* Add your styles */
-}
-
-.content-container {
-  /* Add your styles */
-}
-
-.layout-grid {
-  display: grid;
-  /* Add your grid layout styles */
-}
-
-.project-image {
-  margin: auto;
-  /* Add your image styles */
-}
-
-.text-container {
+.about-container {
   display: flex;
-  flex-direction: column;
-  /* Add your styles */
-}
-
-.header-container {
-  /* Add your styles */
-}
-
-.project-title {
-  font-size: 24px; /* Example size, adjust as needed */
-  font-weight: bold;
-  /* Add your styles */
-}
-
-.project-description {
-  /* Add your styles */
-}
-
-.features-list {
-  display: grid;
-  /* Add your list styles */
-}
-
-.check-icon {
-  margin-right: 8px;
-  display: inline-block;
-  height: 16px;
-  width: 16px;
-  /* Add your styles */
-}
-
-.buttons-container {
-  display: flex;
-  /* Add your styles for button container */
-}
-
-.view-project-button,
-.source-code-button {
-  display: inline-flex;
-  height: 40px;
   align-items: center;
   justify-content: center;
-  /* Add your button styles */
+  padding: 20px;
+  width: 80%;
+  height: auto;
+  margin: auto;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.about-title {
+  font-size: 50px;
+  font-weight: 900;
+  text-align: start;
+}
+
+h2 {
+  color: #374151;
+  font-size: 25px;
+}
+
+p,
+li {
+  text-align: start;
+  color: black;
+  font-size: 23px;
+}
+
+.about-picture {
+  width: 40%;
+  margin-left: 40px;
+  text-align: center;
+  padding-top: 3rem;
+}
+
+.about-picture img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
 }

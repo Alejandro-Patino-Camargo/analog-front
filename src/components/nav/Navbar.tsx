@@ -15,9 +15,6 @@ function Navbar() {
         <div className="nav-about">
           <Link to="/about">About</Link>
         </div>
-        <div className="nav-learn">
-          <Link to="/learn">Learn</Link>
-        </div>
       </div>
     </div>
   );
