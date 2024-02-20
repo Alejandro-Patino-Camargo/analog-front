@@ -14,3 +14,7 @@
   border-bottom-left-radius: 34px;
   border-bottom-right-radius: 34px;
 }
+
+.counter-text {
+  color: white;
+}

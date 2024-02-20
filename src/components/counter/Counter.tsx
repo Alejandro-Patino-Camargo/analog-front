@@ -33,9 +33,11 @@ function Counter() {
 
   return (
     <div className="counter-container">
-      <p>successful downloads&nbsp;</p>
+      <p className="counter-text">successful downloads&nbsp;</p>
       {counters.map((counter, index) => (
-        <p key={index}>{counter}</p>
+        <p className="counter-text" key={index}>
+          {counter}
+        </p>
       ))}
     </div>
   );
