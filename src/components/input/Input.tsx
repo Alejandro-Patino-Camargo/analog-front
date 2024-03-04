@@ -1,11 +1,12 @@
 import { useState, FormEvent, ChangeEvent } from "react";
 import { base_url } from "../../config";
 import Loader from "../loader/Loader";
+import { useAppContext } from "../../Context";
 import "./Input.css";
 
 function Input() {
-  const [userInput, setUserInput] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const { userInput, setUserInput, setSuccess } = useAppContext();
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setUserInput(e.target.value);
@@ -17,6 +18,7 @@ function Input() {
 
     try {
       await fetchMP3(userInput);
+      setSuccess(true);
     } finally {
       setLoading(false);
       setUserInput("");

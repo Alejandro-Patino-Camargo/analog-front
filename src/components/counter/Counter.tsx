@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { base_url } from "../../config.js";
+import { useAppContext } from "../../Context";
 import "./Counter.css";
 
 interface CounterData {
@@ -8,9 +9,8 @@ interface CounterData {
 
 function Counter() {
   const [counters, setCounters] = useState<number[]>([]);
+  const { success } = useAppContext();
 
-  //FIX: useEffect should not depend on counters,  it should only run once
-  //1. currently makes a fetch request every time, not just once
   useEffect(() => {
     async function fetchCounter() {
       try {
@@ -29,7 +29,7 @@ function Counter() {
     }
 
     fetchCounter();
-  }, [counters]);
+  }, [success]);
 
   return (
     <div className="counter-container">
