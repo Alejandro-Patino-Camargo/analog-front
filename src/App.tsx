@@ -3,6 +3,7 @@ import About from "./components/about/About.tsx";
 import Navbar from "./components/nav/Navbar.tsx";
 import { Route, Routes } from "react-router-dom";
 import { AppContextProvider } from "./Context.tsx";
+import { Analytics } from "@vercel/analytics/react";
 import "./global.css";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
         </Routes>
+        <Analytics />
       </div>
     </AppContextProvider>
   );
