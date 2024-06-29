@@ -19,7 +19,7 @@ Analog stands out as an efficient and user-friendly YouTube to MP3 converter. Th
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/analog-frontend.git
+    git clone https://github.com/alejandroo-pc/analog-front.git
     ```
 
 2. **Install dependencies:**
